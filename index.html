@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<head>
+    <title>Billboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mainstyle.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+    @font-face {
+        font-family: Mitra;
+        src: url('font/B_Mitra.ttf')
+    }
+
+    @font-face {
+        font-family: Tabassom;
+        src: url('font/B_Tabassom.ttf');
+    }
+
+    .navbar-brand2 {
+        transform: translateX(-50%);
+        left: 50%;
+        position: absolute;
+    }
+
+    nav {
+        font-family: 'Mitra';
+    }
+
+    #introduction, #viewers {
+        font-family: 'Mitra';
+    }
+
+    .container-fluid {
+        width: 100%;
+        margin-top: 0px;
+        padding: 0px 0px;
+    }
+
+    .container {
+        padding-top: 0px;
+    }
+
+    .back-img {
+        background-image: url('img/billboard.jpg');
+        /* background-size: 100% 100%; */
+        min-height: 853px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 0px;
+
+    }
+
+    .back-img h1 {
+        padding-top: 10px;
+    }
+
+    .header-img {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .navbar {
+        margin-bottom: 0px;
+        border-bottom: 0px;
+        padding-bottom: 0px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .title {
+        font-size: 200%;
+        font-family: 'Mitra';
+    }
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff !important;
+        text-align: center;
+        font-family: 'Mitra';
+
+    }
+
+    .modal-body {
+        font-family: 'Mitra';
+        padding: 40px 50px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #f1f1f1;
+        transition: .2s;
+    }
+
+    .btn:hover, .btn:focus {
+        border: 1px solid #333;
+        background-color: #fff;
+        color: #000;
+    }
+
+    .viewersdef button {
+        float: left;
+    }
+
+    .circle1 {
+        padding: 33px;
+        border-radius: 52%;
+        background-color: #2d2d30;
+        margin-top: 4rem;
+    }
+
+    .circle2 {
+        padding: 36px;
+        border-radius: 52%;
+        background-color: #2d2d30;
+        margin-right: 3rem;
+        margin-top: 9rem;
+    }
+
+    .circle3 {
+        padding: 20px;
+        border-radius: 52%;
+        background-color: #2d2d30;
+        margin-right: 4rem;
+        margin-top: 12rem;
+    }
+
+    .column {
+        float: right;
+    }
+
+    .back {
+        padding: 30px;
+        background-color: #222222;
+        text-align: center;
+        font-size: 15px;
+        margin-top: 3rem;
+    }
+
+    span1 {
+        border: 1px solid;
+        border-radius: 50%;
+        color: #fff;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        padding-top: 15px;
+        margin: 5px;
+        -webkit-transition: all .5s ease 0s;
+        -moz-transition: all .5s ease 0s;
+        -o-transition: all .5s ease 0s;
+        transition: all .5s ease 0s;
+    }
+
+    span1:hover {
+        background: rgba(10, 10, 10, 0.1);
+        border-color: rgba(10, 10, 10, 0.1);
+    }
+
+    h6 a,
+    h6 a:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    @media screen and (min-width: 800px) {
+        .viewersdef {
+            margin-top: 10%;
+        }
+    }
+</style>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<!-- Navbar:-->
+<nav class="navbar w3-black navbar-inverse navbar-fixed-top header-img">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myHeader">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button class="btn navbar-brand w3-black w3-hover-gray" data-toggle="modal" data-target="#signup">ثبت نام
+            </button>
+            <button class="btn navbar-brand w3-black w3-hover-gray" data-toggle="modal" data-target="#login"
+                    style="margin-left: 0.1rem">ورود
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myHeader">
+            <ul class="nav navbar-nav navbar-right" style="float: right">
+                <li><a class="w3-black w3-hover-gray text-right" href="#mainPage" style="font-size: 2rem">صفحه اصلی</a></li>
+                <li><a class="w3-black w3-hover-gray text-right" href="#introduction" style="font-size: 2rem"> درباره بیلبورد</a></li>
+                <li><a class="w3-black w3-hover-gray text-right" href="#viewers" style="font-size: 2rem">بینندگان</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Login: -->
+<div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>نام کاربری و رمز عبور خود را وارد کنید</h4>
+            </div>
+            <div class="modal-body text-right">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="username">نام کاربری</label>&nbsp<span class=" glyphicon glyphicon-user"></span>
+                        <input type="text" class="form-control" id="username" placeholder="نام کاربری"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">رمز عبور</label>&nbsp<span class=" glyphicon glyphicon-lock"></span>
+                        <input type="password" class="form-control" id="password" placeholder="رمز عبور"/>
+                    </div>
+                    <button type="submit" class="btn btn-block">ورود</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- signup: -->
+<div class="modal fade" id="signup" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>لطفا اطلاعات خود را وارد کنید</h4>
+            </div>
+            <div class="modal-body text-right">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">نام و نام خانوادگی</label>&nbsp<span
+                            class=" glyphicon glyphicon-pencil"></span>
+                        <input type="text" class="form-control" id="name" placeholder="نام"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="uname">نام کاربری</label>&nbsp<span class=" glyphicon glyphicon-user"></span>
+                        <input type="text" class="form-control" id="uname" placeholder="نام کاربری"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل</label>&nbsp<span class=" glyphicon glyphicon-envelope"></span>
+                        <input type="email" class="form-control" id="email" placeholder="ایمیل"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">رمزعبور</label>&nbsp<span class=" glyphicon glyphicon-lock"></span>
+                        <input type="password" class="form-control" id="pass" placeholder="رمز عبور"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="passrpt">تکرار رمز عبور</label>&nbsp<span class=" glyphicon glyphicon-check"></span>
+                        <input type="password" class="form-control" id="passrpt" placeholder="تکرار رمز عبور"/>
+                    </div>
+                    <button type="submit" class="btn btn-block">ثبت نام</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start: -->
+<div class="text-center back-img w3-opacity-min container-fluid " id="indexPage">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">BILLBOARD</span> </br></br>
+        <span class="w3-center w3-padding-large w3-black w3-large w3-hide-small w3-wide w3-animate-opacity">Your Best Advertisement Platform</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="column" id="introduction">
+            <div class="circle1">
+                <h3 style="color:white;"> بیلبورد چیه ؟</h3>
+            </div>
+        </div>
+        <div class="column">
+            <div class="circle2">
+            </div>
+        </div>
+        <div class="column">
+            <div class="circle3">
+            </div>
+        </div>
+        <img class="w3-image" src="img/down.jpeg" style="margin-top: 8rem"/>
+    </div>
+    <div class="column text-right title ">
+        <h3> بیلبورد یک پلتفرم تبلیغاتیست که خیلی راحت توی اون میتونید درآمد کسب کنید. اگر دوست دارید که تمام وقتتون
+            رو پای گوشی الکی هدر ندید ، بیلبورد گزینه ی خوبیه :) اما چجوری؟
+        </h3>
+        <h3> ما اینجا روی سایت یکسری اپلیکیشن و ویدیو و نظرخواهی قرار میدیم و به ازای نصب هر اپلیکیشن، مشاهده
+            هر ویدیو و شرکت توی هر نظرخواهی، یک میزان اعتبار خاصی در نظر میگیریم که هر کدوم از کاربرها میتونن
+            موارد مورد نظر خودشون رو ببینن و اعتبار دریافت کنند. وقتی هم که اعتبارشون به اندازه کافی جمع شد ،
+            میتونند از تخفیف های جذابی که توی گیفت شاپمون هست، بهره ببرند .
+        </h3>
+    </div>
+
+    <div class="row">
+        <div class="column" id="viewers ">
+            <div class="circle1">
+                <h3 style="color:white;"> بینندگان</h3>
+            </div>
+        </div>
+        <div class="column">
+            <div class="circle2">
+            </div>
+        </div>
+        <div class="column">
+            <div class="circle3">
+            </div>
+        </div>
+    </div>
+    <div class="text-right title container-fluid ">
+        <h3>کاربرهای بیلبورد، واسه ما خیلی باارزش اند. علتش هم اینه که وقت خودشون رو در اختیار سایت ما قرار
+            میدن. واسه همین ما هم حسابی هواشونو داریم. اگر دوست دارید که بخشی از زمانی که پای گوشی میذارید رو
+            خرج یه کار مفیدتر بکنید، به جمع کاربرهای ما بپیوندید و با گذاشتن یه مقدار کم از زمان های آزادتون، هر
+            چند وقت یه بار گیفت های باحال دریافت کنید ، معطل نکنید! همین حالا ثبت نام کنید
+        </h3>
+        <button class="btn" data-toggle="modal" data-target="#signup" style="border-radius: 50%">ثبت نام
+        </button>
+    </div>
+</div>
+
+<!--  about us  -->
+<div class="w3-padding-32 w3-center back">
+    <h1 style="color: white;font-family: Mitra;font-size:40px ">بیلبورد</h1>
+    <div class="w3-padding-32">
+        <p style="color: white;font-family: Mitra;font-size: 20px">
+
+            راه های ارتباط با ما
+        </p>
+        <p style="color: white; font-family: Mitra;font-size: 20px">
+            پست الکترونیک : contact@billboard.com
+        </p>
+        <p style="color: white;font-family: Mitra;font-size: 20px">
+            شماره تماس : 02188888888
+        </p>
+    </div>
+
+    <!-- social media -->
+    <div class="icons center-block">
+        <span1 class="fa fa-facebook fa-2x"></span1>
+        <span1 class="fa fa-twitter fa-2x"></span1>
+        <span1 class="fa fa-instagram fa-2x"></span1>
+        <span1 class="fa fa-whatsapp fa-2x"></span1>
+        <span1 class="fa fa-skype fa-2x"></span1>
+        <br>
+        <br>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".navbar a").on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function () {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    })
+</script>
