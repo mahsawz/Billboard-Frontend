@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" class="rtl ng-scope">
 <head>
-  <title>Billboardddddd</title>
+  <title>Billboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -39,8 +39,8 @@
       choice.setAttribute('class','choice');
       var br=document.createElement('br');
       //var target=document.getElementById('addChoice');
-      document.getElementById(i).insertBefore(choice,btn);
-      document.getElementById(i).insertBefore(br,btn);
+      document.getElementById(btn.className).insertBefore(choice,btn);
+      document.getElementById(btn.className).insertBefore(br,btn);
       //document.getElementById(i).appendChild(choice);
 
     }
