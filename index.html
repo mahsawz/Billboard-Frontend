@@ -88,7 +88,7 @@
     }
 
     .modal-header, h4, .close {
-        background-color: #333;
+        background-color: #122b40;
         color: #fff !important;
         text-align: center;
         font-family: 'Mitra';
@@ -102,8 +102,8 @@
 
     .btn {
         padding: 10px 20px;
-        background-color: #333;
-        color: #f1f1f1;
+        background-color: #122b40;
+        color: white;
         transition: .2s;
     }
 
@@ -120,14 +120,14 @@
     .circle1 {
         padding: 33px;
         border-radius: 52%;
-        background-color: #2d2d30;
+        background-color: #122b40;
         margin-top: 4rem;
     }
 
     .circle2 {
         padding: 36px;
         border-radius: 52%;
-        background-color: #2d2d30;
+        background-color: #122b40;
         margin-right: 3rem;
         margin-top: 9rem;
     }
@@ -135,7 +135,7 @@
     .circle3 {
         padding: 20px;
         border-radius: 52%;
-        background-color: #2d2d30;
+        background-color: #122b40;
         margin-right: 4rem;
         margin-top: 12rem;
     }
@@ -146,7 +146,7 @@
 
     .back {
         padding: 30px;
-        background-color: #222222;
+        background-color: #122b40;
         text-align: center;
         font-size: 15px;
         margin-top: 3rem;
@@ -187,7 +187,7 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <!-- Navbar:-->
-<nav class="navbar w3-black navbar-inverse navbar-fixed-top header-img">
+<nav class="navbar navbar-inverse navbar-fixed-top header-img icon-bar" style="background-color: #122b40">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myHeader">
@@ -195,17 +195,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <button class="btn navbar-brand w3-black w3-hover-gray" data-toggle="modal" data-target="#signup">ثبت نام
+            <button class="btn navbar-brand w3-hover-light-grey" data-toggle="modal" data-target="#signup"
+                    style="background-color: #122b40;color: white">ثبت نام
             </button>
-            <button class="btn navbar-brand w3-black w3-hover-gray" data-toggle="modal" data-target="#login"
+            <button class="btn navbar-brand w3-hover-light-grey" data-toggle="modal" data-target="#login"
+                    style="background-color: #122b40;margin-left: 0.1rem;color: white"
                     style="margin-left: 0.1rem">ورود
             </button>
         </div>
         <div class="collapse navbar-collapse" id="myHeader">
             <ul class="nav navbar-nav navbar-right" style="float: right">
-                <li><a class="w3-black w3-hover-gray text-right" href="#mainPage" style="font-size: 2rem">صفحه اصلی</a></li>
-                <li><a class="w3-black w3-hover-gray text-right" href="#introduction" style="font-size: 2rem"> درباره بیلبورد</a></li>
-                <li><a class="w3-black w3-hover-gray text-right" href="#viewers" style="font-size: 2rem">بینندگان</a></li>
+
+                <li><a class="w3-hover-light-grey text-right" href="#viewers"
+                       style="font-size: 2rem;background-color: #122b40;color: white">بینندگان</a>
+                </li>
+                <li><a class="w3-hover-light-grey text-right" href="#introduction"
+                       style="font-size: 2rem;background-color: #122b40;color: white"> درباره
+                    بیلبورد</a></li>
+                <li><a class="w3-hover-light-grey text-right" href="#mainPage"
+                       style="font-size: 2rem;background-color: #122b40;color: white">صفحه اصلی</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -234,7 +243,8 @@
         </div>
     </div>
 </div>
-<!-- signup: -->
+
+<!-- Signup: -->
 <div class="modal fade" id="signup" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -280,11 +290,12 @@
     </div>
 </div>
 
+<!--  What is billboard ?  -->
 <div class="container">
     <div class="row">
         <div class="column" id="introduction">
             <div class="circle1">
-                <h3 style="color:white;"> بیلبورد چیه ؟</h3>
+                <h3 style="color:white;"> بیلبورد چیه؟</h3>
             </div>
         </div>
         <div class="column">
@@ -297,7 +308,7 @@
         </div>
         <img class="w3-image" src="img/down.jpeg" style="margin-top: 8rem"/>
     </div>
-    <div class="column text-right title ">
+    <div class=" text-right title ">
         <h3> بیلبورد یک پلتفرم تبلیغاتیست که خیلی راحت توی اون میتونید درآمد کسب کنید. اگر دوست دارید که تمام وقتتون
             رو پای گوشی الکی هدر ندید ، بیلبورد گزینه ی خوبیه :) اما چجوری؟
         </h3>
@@ -323,7 +334,7 @@
             </div>
         </div>
     </div>
-    <div class="text-right title container-fluid ">
+    <div class="text-right title ">
         <h3>کاربرهای بیلبورد، واسه ما خیلی باارزش اند. علتش هم اینه که وقت خودشون رو در اختیار سایت ما قرار
             میدن. واسه همین ما هم حسابی هواشونو داریم. اگر دوست دارید که بخشی از زمانی که پای گوشی میذارید رو
             خرج یه کار مفیدتر بکنید، به جمع کاربرهای ما بپیوندید و با گذاشتن یه مقدار کم از زمان های آزادتون، هر
