@@ -31,47 +31,66 @@
       document.getElementById(i).appendChild(question);
       document.getElementById(i).appendChild(br);
       document.getElementById(i).appendChild(addChoice);
+      document.getElementById('questions_count').setAttribute('value',i+1);
     }
     function add_choice(btn){
+      var choices=document.getElementById(btn.className).getElementsByTagName('input').length-1;
       var choice=document.createElement('input');
       choice.setAttribute("type", "text");
       choice.setAttribute("name", "item"+ btn.className);
       choice.setAttribute('class','choice');
       var br=document.createElement('br');
-      //var target=document.getElementById('addChoice');
+      var delBtn=document.createElement('button');
+      // delBtn.setAttribute('type','button');
+      //delBtn.setAttribute('class','delet_item' + btn.className);
+      delBtn.setAttribute('onclick','delete_item(this)');
+      delBtn.setAttribute('name','delete' + btn.className );
+      delBtn.setAttribute('id','deleteItem'+choices);
+      delBtn.setAttribute('class',btn.className);
+      delBtn.innerHTML="حذف";
+      //var icon=document.createElement('span');
+      //icon.setAttribute('class','glyphicon glyphicon-remove');
+      //icon.setAttribute('onclick','delet_item()');
+      //icon.style.color="red";
+
       document.getElementById(btn.className).insertBefore(choice,btn);
+      document.getElementById(btn.className).insertBefore(delBtn,choice.nextSibling);
+      //document.getElementById(btn.className).insertBefore(icon);
       document.getElementById(btn.className).insertBefore(br,btn);
-      //document.getElementById(i).appendChild(choice);
+
+    }
+    function delete_item(btn){
+      var deletingElement=btn.previousSibling;
+      var idName=btn.parentNode.id
+      document.getElementById(idName).removeChild(deletingElement);
+      document.getElementById(idName).removeChild(btn);
 
     }
     function getInputsByValue(value)
-  {
+    {
       var allInputs = document.getElementsByTagName("input");
       var results = [];
       for(var x=0;x<allInputs.length;x++)
           if(allInputs[x].value == value)
               results.push(allInputs[x]);
       return results;
+    }
+  function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
   }
   </script>
 
   <style>
-    /* Remove the navbar's default rounded borders and increase the bottom margin */
     body{
     direction: rtl;
+    /* background: linear-gradient(to top,rgb(244,160,66),rgb(244,220,66)); */
+    background: linear-gradient(to bottom,rgb(201, 200, 189),rgb(232, 229, 201));
     }
     .navbar {
       direction: rtl;
       margin-bottom: 50px;
       border-radius: 0;
     }
-
-    /* Remove the jumbotron's default bottom margin */
-     .jumbotron {
-      margin-bottom: 0;
-      height: 150px;
-    }
-
     /* Add a gray background color and some padding to the footer */
 
     @media (min-width: 768px) {
@@ -83,17 +102,20 @@
       background-color:rgb(181, 175, 175) ;
       text-align: right;
     }
-    #logo{
-      width:50px;
-      height: 50px;
-    }
+
     .logo {
       width: 50px;
       height: 50px;
       overflow: hidden;
     }
     .questionnaire{
-      background-color: rgb(181, 175, 175);
+
+      background-image: url('questionForm.png');
+      height: 600px;
+      overflow: scroll;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       direction: rtl;
     }
     .form-group{
@@ -101,23 +123,22 @@
     }
     .q{
       border-style: dashed;
+      background-color: rgba(165, 182, 183,0.5);
     }
-    .question{
-      width: 100%;
+    #questions{
 
+    }
+    #logo{
+      width:50px;
+      height: 50px;
     }
 
   </style>
 </head>
 <body>
 
-<div class="jumbotron" >
-  <div class="container text-center">
-    <h1>بیلبورد</h1>
-  </div>
-</div>
 
-<nav class=" navbar navbar-inverse text-r " dir="rtl">
+<nav class=" navbar navbar-inverse sticky-top fixed-top text-r " dir="rtl">
   <div class="container-fluid ">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -149,14 +170,14 @@
         <form id="questionnaire" dir="rtl">
           <label for="question_name" dir="rtl"> نام پرسشنامه خود را وارد کنید </label><br>
           <input type="text"  id="question_name" name="question_name"><br><br>
-          <!-- <button class="btn btn-default" onclick="add_question()">افزودن سوال</button></br> -->
+          <input type="hidden" id="questions_count" name="questions_count"/>
           <div id="questions" class="container">
           </div>
           <button id="add_question" class="btn add-more" type="button" onclick="add_more(this)">+</button><br/>
           <button type="submit" class="btn btn-default">ثبت نهایی</button>
         </form>
-    </div>
 
+    </div>
   </div>
 </div><br>
 
