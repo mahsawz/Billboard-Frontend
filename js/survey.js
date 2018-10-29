@@ -7,7 +7,7 @@ function add_more(addbtn){
   question_label.setAttribute('class',i);
   question_label.setAttribute('id','label' + i);
   var labelVal=i+1;
-  question_label.innerHTML="سوال"+String(labelVal);
+  question_label.innerHTML="Question"+String(labelVal);
   var question_div=document.createElement('div');
   question_div.setAttribute("id" , i );
   question_div.setAttribute("class" , "q" ,'col-sm-8');
@@ -98,7 +98,7 @@ function delete_question(btn){
       document.getElementById(b+'deleteItem'+pre).setAttribute("name",'delete'+ pre );
     }
     document.getElementById(a).setAttribute('id',pre);
-    document.getElementById("label"+a).innerText="سوال"+ a;
+    document.getElementById("label"+a).innerText="Question"+ a;
     document.getElementById("label"+a).setAttribute('id',"label"+pre);
     document.getElementById("label"+pre).setAttribute('for',pre);
     document.getElementById("question"+a).setAttribute('name',"q"+pre);
