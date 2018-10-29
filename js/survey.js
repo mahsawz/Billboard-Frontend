@@ -7,7 +7,7 @@ function add_more(addbtn){
   question_label.setAttribute('class',i);
   question_label.setAttribute('id','label' + i);
   var labelVal=i+1;
-  question_label.innerHTML="سوال"+labelVal;
+  question_label.innerHTML="سوال"+String(labelVal);
   var question_div=document.createElement('div');
   question_div.setAttribute("id" , i );
   question_div.setAttribute("class" , "q" ,'col-sm-8');
@@ -29,7 +29,6 @@ function add_more(addbtn){
   var addChoice=document.createElement('button');
   addChoice.setAttribute("type", "button");
   addChoice.setAttribute("onclick","add_choice(this)");
-  //addChoice.setAttribute("value","افزودن گزینه");
   addChoice.setAttribute("id","addChoice"+ i);
   addChoice.setAttribute("class", i);
   var addSpan=document.createElement('span');
@@ -109,8 +108,11 @@ function delete_question(btn){
     document.getElementById("deleteQuestion"+a).setAttribute('class', pre);
     document.getElementById("deleteQuestion"+a).setAttribute('id',"deleteQuestion"+ pre);
 
+
   }
   i--;
+  document.getElementById('questions_count').setAttribute('value',i);
+
 }
 function getInputsByValue(value)
 {
