@@ -36,7 +36,7 @@ background: linear-gradient(to bottom,rgb(201, 200, 189),rgb(232, 229, 201));
 }
 .questionnaire{
 
-  background-image: url('img/questionForm.png');
+  background-image: url('questionForm.png');
   height: 600px;
   overflow: scroll;
   background-size: contain;
