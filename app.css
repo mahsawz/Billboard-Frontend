@@ -146,12 +146,12 @@ span1:hover {
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
 }
-/* @media screen and (min-width: 600px) { */
+@media screen and (min-width: 600px) {
 .flex-container {
   display: flex;
   flex-direction: row-reverse;
 }
-/* } */
+}
 .survey-info {
   display: flex;
   justify-content: center;
