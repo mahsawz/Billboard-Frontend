@@ -1,3 +1,8 @@
+@font-face {
+    src: url('font/B_Mitra.ttf');
+    font-family: Mitra;
+}
+
 body {
     font-family: 'Mitra';
     direction: rtl;
@@ -30,4 +35,28 @@ span1 {
 span1:hover {
     background: rgba(10, 10, 10, 0.1);
     border-color: rgba(10, 10, 10, 0.1);
+}
+.container {
+    padding-top: 0px;
+}
+
+.w3-sidebar {
+    /* width: 200px; */
+    right: 0;
+    z-index: 4;
+    font-family: 'Mitra';
+}
+
+.w3-sidebar img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.w3-bar {
+    padding: 0px 10%;
+}
+
+a:hover, a:after, a:visited, a:link {
+    text-decoration: none;
+    color: white;
 }
