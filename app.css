@@ -160,3 +160,11 @@ span1:hover {
   padding: 2px 0;
   text-overflow: ellipsis;
 }
+.questions {
+  padding: 2rem;
+
+}
+.flex-container2 {
+  display: flex;
+  flex-direction: row;
+}
