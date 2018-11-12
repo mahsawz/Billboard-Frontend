@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>App Page</title>
+    <title>Surveys Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -37,78 +37,55 @@
             <button id="openNav" class="w3-button w3-bar-item w3-hover-white w3-right" onclick="openPanel()"
                     style="font-size: 2rem; color:white;">&#9776;
             </button>
-            <a href="#" class="w3-bar-item w3-hover-white w3-hide-small w3-button w3-right" style="font-size: 2rem">اپ ها</a>
-            <a href="#" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
+            <a href="#" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">اپ ها</a>
+            <a href="#" class="w3-hide-small w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
             <a href="giftshop.html" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">گیفت
                 شاپ</a>
         </div>
         <!-- Title -->
         <div class="w3-container text-center title">
-            <h1 style="color: #122b40"><strong> تبلیغات</strong></h1>
-            <h3 style="color: #122b40">بر روی اپلیکیشن مورد نظر خود کلیک کرده و پس از دانلود آن اعتبار کسب کنید</h3>
+            <h1 style="color: #122b40"><strong> پرسشنامه ها</strong></h1>
+            <h3 style="color: #122b40">بر روی پرسشنامه مورد نظر خود کلیک کرده و پس از پاسخگویی، اعتبار کسب کنید</h3>
         </div>
-        <div class="w3-container text-center">
-            <select name="option" class="select">
-                <option disabled selected style="color: #122b40">کتگوری مورد نظر خود را انتخاب کنید:</option>
-                <option>همه</option>
-                <option>اپلیکیشن</option>
-                <option>بازی</option>
-            </select>
-        </div>
-        <!--Apps-->
+
+        <!--Surveys-->
         <div class="row">
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/bazar.jpeg"/>
-                    <h4> bazaar </h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
+            <div class="col-sm-12">
+                <div class="box2 w3-card">
+                    <div class="flex-container w3-row text-center">
+                      <div class="survey-info w3-col m3 ">
+                        <img src="img/clipboard.png" style="width:100px;" alt="Clip Icon" style="width:100%"/>
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        عنوان پرسشنامه
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        اعتبار : 1000
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        <button class="btn w3-hover-white" style="color: white;background-color: #122b40">پاسخگویی</button>
+                      </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/shareit.jpeg" alt="app icon"/>
-                    <h4>shareit</h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/trello.jpeg" alt="app icon"/>
-                    <h4>Trello</h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/radiojavan.jpeg" style="border-radius: 20%" alt="app icon"/>
-                    <h4>radio javan</h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/telegram.jpeg" style="border-radius: 50%" alt="app icon"/>
-                    <h4>Telegram</h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="box text-center w3-card">
-                    <img src="img/instagram.jpeg" style="border-radius: 50%" alt="app icon"/>
-                    <h4>instagram</h4>
-                    <h4>تعداد دانلود</h4>
-                    <h4>اعتبار</h4>
-                    <button class="btn w3-hover-white" style="color: white;background-color: #122b40">دانلود اپ</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box2 w3-card">
+                    <div class="flex-container w3-row text-center">
+                      <div class="survey-info w3-col m3 ">
+                        <img src="img/clipboard.png" style="width:100px;" alt="Clip Icon" style="width:100%"/>
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        عنوان پرسشنامه
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        اعتبار : 1000
+                      </div>
+                      <div class="survey-info w3-col m3 ">
+                        <button class="btn w3-hover-white" style="color: white;background-color: #122b40">پاسخگویی</button>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
