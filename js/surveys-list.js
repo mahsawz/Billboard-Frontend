@@ -43,6 +43,8 @@ request.onload = function(e) {
     var button = document.createElement('button');
     button.setAttribute('class','btn w3-hover-white');
     button.setAttribute('style',"color: white;background-color: #122b40");
+    button.setAttribute('onclick',"goToSurvey(this)");
+    button.setAttribute('name',object.id+"");
     button.innerHTML = "پاسخگویی" ;
     buttonDiv.appendChild(button);
     details.appendChild(imgDiv);
@@ -57,3 +59,11 @@ request.onload = function(e) {
   }
 }
 request.send();
+
+
+function goToSurvey(button) {
+    // sessionStorage.setItem(survey_id, eval(button.getAttribute('name')));
+    document.cookie = "survey_id = "+button.getAttribute('name');
+    window.location.replace("survey-answer.html");
+
+}
