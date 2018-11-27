@@ -62,8 +62,7 @@ request.send();
 
 
 function goToSurvey(button) {
-    // sessionStorage.setItem(survey_id, eval(button.getAttribute('name')));
-    document.cookie = "survey_id = "+button.getAttribute('name');
-    window.location.replace("survey-answer.html");
+    sessionStorage.setItem("survey_id", eval(button.getAttribute('name')));
+    window.location.assign("survey-answer.html");
 
 }
