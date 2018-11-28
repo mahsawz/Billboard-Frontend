@@ -26,6 +26,40 @@ request.onload = function(e) {
     questionContainer.appendChild(questionText);
     rowDiv.appendChild(questionContainer);
     questionDiv.appendChild(rowDiv);
+    //Question choices
+    var q_items = q_object.items;
+    var j;
+    var flexContainer = document.createElement('div');
+    flexContainer.setAttribute('class','w3-row flex-container2');
+    flexContainer.setAttribute('dir','rtl');
+    for (j=0;j<q_items.length;j++) {
+      var item = q_items[j];
+      var itemDiv = document.createElement('div');
+      itemDiv.setAttribute('class','w3-col m3');
+      var inputElement = document.createElement('input');
+      inputElement.setAttribute('class','w3-radio');
+      inputElement.setAttribute('name',q_object.id);
+      inputElement.setAttribute('type','radio');
+      var labelElement = document.createElement('label');
+      labelElement.innerHTML = item.context;
+      itemDiv.appendChild(inputElement);
+      itemDiv.appendChild(labelElement);
+      if (j==0) {
+        inputElement.checked = true;
+      }
+      if (j%4 == 0) {
+        questionDiv.appendChild(flexContainer);
+        var newContainer = document.createElement('div');
+        newContainer.setAttribute('class','w3-row flex-container2');
+        newContainer.setAttribute('dir','rtl');
+        flexContainer = newContainer;
+      }
+      flexContainer.appendChild(itemDiv);
+      if (j==q_items.length-1){
+        console.log("Mola");
+        questionDiv.appendChild(flexContainer);
+      }
+    }
     document.getElementById('questions').appendChild(questionDiv);
   }
 }
