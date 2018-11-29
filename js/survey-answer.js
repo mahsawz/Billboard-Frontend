@@ -40,6 +40,7 @@ request.onload = function(e) {
       inputElement.setAttribute('class','w3-radio');
       inputElement.setAttribute('name',q_object.id);
       inputElement.setAttribute('type','radio');
+      inputElement.setAttribute('id',"item"+item.id);
       var labelElement = document.createElement('label');
       labelElement.innerHTML = item.context;
       itemDiv.appendChild(inputElement);
