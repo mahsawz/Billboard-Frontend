@@ -14,6 +14,7 @@
 </head>
 
 <script src="js/sidebar.js"></script>
+<script src="js/survey-answer.js"></script>
 
 <body style="background: #c8cacb">
 <!-- Profile Panel  -->
@@ -44,12 +45,12 @@
         </div>
         <!-- Title -->
         <div class="w3-container text-center title">
-            <h1 style="color: #122b40"><strong>عنوان پرسشنامه</strong></h1>
-            <h3 style="color: #122b40">توضیحات مربوط به پرسشنامه</h3>
+            <h1 id="question-title" style="color: #122b40"><strong>عنوان پرسشنامه</strong></h1>
+            <h3 id="question-description" style="color: #122b40">توضیحات مربوط به پرسشنامه</h3>
         </div>
 
         <!--Surveys-->
-        <div class="questions">
+        <div class="questions" id="questions">
           <!-- Question1 -->
           <div class="question">
             <div class="w3-row">
@@ -59,29 +60,32 @@
             </div>
             <!-- All radio inputs in a group should have the same name attr -->
             <div class="w3-row flex-container2" dir="rtl">
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0" type="radio" checked/><label>مرد 1</label>
               </div>
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 2</label>
               </div>
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 3</label>
               </div>
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 4</label>
               </div>
             </div>
             <div class="w3-row flex-container2" dir="rtl">
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 5</label>
               </div>
-              <div class="w3-col s3">
+              <div class="w3-col m3">
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 6</label>
               </div>
             </div>
           </div>
         </div>
+    </div>
+    <div class="text-center">
+      <button class="btn survey-submit-btn w3-hover-white" id="submit-btn" style="color: white;background-color: #122b40">ثبت پاسخ ها</button>
     </div>
 </div>
 

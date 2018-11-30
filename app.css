@@ -164,7 +164,9 @@ span1:hover {
   padding: 2rem;
 
 }
+@media screen and (min-width:600px) {
 .flex-container2 {
   display: flex;
   flex-direction: row;
+}
 }
