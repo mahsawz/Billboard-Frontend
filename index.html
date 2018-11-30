@@ -227,7 +227,6 @@
                 <h4>نام کاربری و رمز عبور خود را وارد کنید</h4>
             </div>
             <div class="modal-body text-right">
-                <form role="form">
                     <div class="form-group">
                         <label for="username">نام کاربری</label>&nbsp<span class=" glyphicon glyphicon-user"></span>
                         <input type="text" class="form-control" id="username" placeholder="نام کاربری"/>
@@ -236,8 +235,7 @@
                         <label for="password">رمز عبور</label>&nbsp<span class=" glyphicon glyphicon-lock"></span>
                         <input type="password" class="form-control" id="password" placeholder="رمز عبور"/>
                     </div>
-                    <button type="submit" class="btn btn-block">ورود</button>
-                </form>
+                    <button type="submit" onclick="verifyUser()" class="btn btn-block">ورود</button>
             </div>
         </div>
     </div>
@@ -371,6 +369,7 @@
         <br>
     </div>
 </div>
+<script src="js/login-user.js"></script>
 
 <script>
     $(document).ready(function () {
