@@ -13,7 +13,7 @@ function verifyUser() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
       var resp = JSON.parse(this.response);
       if (resp.status === "OK") {
-        sessionStorage.setItem('user', resp.user);
+        sessionStorage.setItem('user', JSON.stringify(resp.user));
         window.location.replace('app.html');
       } else {
         alert("User info not correct");
