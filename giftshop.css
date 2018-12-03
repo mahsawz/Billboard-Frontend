@@ -80,3 +80,14 @@ a:hover, a:after, a:visited, a:link {
     text-decoration: none;
     color: white;
 }
+.modal-footer {
+    text-align: center;
+}
+
+.iconX {
+    color: red;
+}
+
+.iconOk {
+    color: green;
+}
