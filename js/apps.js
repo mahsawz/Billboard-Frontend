@@ -1,6 +1,13 @@
-function getApps() {
+function getApps(filter) {
   var request = new XMLHttpRequest();
-  var url = 'http://127.0.0.1:5000/api/showApps';
+  var url;
+  if (filter == 0) {
+      url = 'http://127.0.0.1:5000/api/showApps';
+  }
+  else {
+    url = 'http://127.0.0.1:5000/api/showApps/'+filter;
+  }
+
   request.open('GET', url, true);
   request.onload = function(e) {
     var data = JSON.parse(this.response);
@@ -36,4 +43,15 @@ function getApps() {
     }
   }
   request.send();
+}
+function getAppsByCategory() {
+  document.getElementById('apps').innerHTML = "";
+  var options = document.getElementsByTagName('option');
+  var i;
+  for(i=1;i<options.length;i++) {
+    var option = options[i];
+    if (option.selected == true) {
+      getApps(i);
+    }
+  }
 }
