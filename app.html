@@ -18,7 +18,7 @@
 <script src="js/sidebar.js"></script>
 
 
-<body style="background: #c8cacb" onload="getApps(),fillUserInfo()">
+<body style="background: #c8cacb" onload="getApps(0),fillUserInfo()">
 <!-- Profile Panel  -->
 <div class=" w3-sidebar w3-bar-block w3-card w3-animate-right text-center" style="display:none; right:0;" id="rightPanel">
     <button class="w3-bar-item w3-button w3-large" onclick="closePanel()"> &times;</button>
@@ -51,7 +51,7 @@
             <h3 style="color: #122b40">بر روی اپلیکیشن مورد نظر خود کلیک کرده و پس از دانلود آن اعتبار کسب کنید</h3>
         </div>
         <div class="w3-container text-center">
-            <select name="option" class="select">
+            <select name="option" class="select" onchange="getAppsByCategory()">
                 <option disabled selected style="color: #122b40">کتگوری مورد نظر خود را انتخاب کنید:</option>
                 <option>همه</option>
                 <option>اپلیکیشن</option>
