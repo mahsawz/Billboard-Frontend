@@ -1,14 +1,14 @@
 function getSurveys() {
-
   const surveyImg = document.createElement('img');
   surveyImg.setAttribute('src', "img/clipboard.png");
   surveyImg.setAttribute('style', 'width:100px;');
   surveyImg.setAttribute('alt', "Clip Icon");
+  
   var request = new XMLHttpRequest();
   var url = 'http://127.0.0.1:5000/api/showSurvey';
   request.open('GET', url, true);
   request.onload = function(e) {
-    var data = JSON.parse(this.response);
+    var data = JSON.parse(this.response).surveys;
     console.log(data);
     var i;
     for (i = 0; i < data.length; i++) {
@@ -61,8 +61,8 @@ function getSurveys() {
   request.send();
 }
 
+
 function goToSurvey(button) {
   sessionStorage.setItem("survey_id", eval(button.getAttribute('name')));
   window.location.assign("survey-answer.html");
-
 }
