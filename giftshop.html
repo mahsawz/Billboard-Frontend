@@ -74,11 +74,14 @@
                 <div class="modal-content text-center">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2>آیا از دریافت این گیفت مطمئن هستید؟</h2>
+                        <h2>آیا از دریافت این گیفت مطمئن هستید؟</h2><br>
+                        <h4 id="gift-name"></h4>
+                        <h4 id="gift-cost"></h4>
+                        <h4 id="gift-description"></h4>
                     </div>
                     <div class="modal-footer text-center">
                         <button class="btn w3-black w3-hover-white" data-toggle="modal" data-target="#redeemSuccessful"
-                                data-dismiss="modal">دریافت گیفت<span class="glyphicon glyphicon-ok iconOk"></span>
+                                data-dismiss="modal" onclick="getGiftCode()">دریافت گیفت<span class="glyphicon glyphicon-ok iconOk"></span>
                         </button>
                         <button class="btn w3-black w3-hover-white" data-dismiss="modal">انتخاب گیفت دیگر<span
                                 class="glyphicon glyphicon-remove iconX"></span></button>
@@ -91,8 +94,9 @@
                 <div class="modal-content text-center">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 style="color: #122b40">گیفت با موفقیت برای شما ثبت گردید</h2>
+                        <h2 id="gift-redeem-result" style="color: #122b40">گیفت با موفقیت برای شما ثبت گردید</h2>
                         <span class="label label-default" style="background-color: #122b40">کد گیفت کارت</span>
+                        <h3 id="gift-code"></h3>
                     </div>
                     <div class="modal-footer">
                         <button class="btn w3-hover-white" style="background-color: #122b40;color: white">بازگشت به
