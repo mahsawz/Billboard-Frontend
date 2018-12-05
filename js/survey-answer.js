@@ -1,10 +1,12 @@
+function showQuestions() {
 var survey_id = sessionStorage.getItem("survey_id");
 var request = new XMLHttpRequest();
 var url = 'http://127.0.0.1:5000/api/fillSurvey/' + 1;
 request.open('GET', url, true);
 var qDiv = document.getElementById('questions');
 request.onload = function(e) {
-  var data = JSON.parse(this.response);
+  var resp = JSON.parse(this.response);
+  var data = resp.survey;
   console.log(data);
   document.getElementById('question-title').innerHTML = "" + data.title;
   document.getElementById('question-description').innerHTML = "" + data.description;
@@ -64,3 +66,4 @@ request.onload = function(e) {
   }
 }
 request.send();
+}
