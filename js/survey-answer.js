@@ -1,3 +1,4 @@
+function showQuestions() {
 var survey_id = sessionStorage.getItem("survey_id");
 var request = new XMLHttpRequest();
 var url = 'http://127.0.0.1:5000/api/fillSurvey/' + 1;
@@ -64,3 +65,4 @@ request.onload = function(e) {
   }
 }
 request.send();
+}
