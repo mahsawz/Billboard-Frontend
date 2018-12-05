@@ -26,6 +26,8 @@ function getGifts() {
       button.setAttribute('style', "color: white;background-color: #122b40");
       button.setAttribute('data-toggle', 'modal');
       button.setAttribute('data-target', '#proceedbox');
+      button.setAttribute('name',gift.id);
+      button.setAttribute('onclick','confirmGiftInfo(this)');
       button.innerHTML = "دریافت گیفت";
       box.appendChild(img);
       box.appendChild(name);
@@ -37,5 +39,13 @@ function getGifts() {
     }
   }
   request.send();
+}
 
+function confirmGiftInfo(button) {
+  var giftId = eval(button.getAttribute('name'));
+  var gifts = document.getElementsByClassName('thumbnail');
+  var selected = (gifts[giftId]).childNodes; // note : first element is static. If removed, giftId should be decremented
+  document.getElementById('gift-name').innerHTML = selected[1].innerHTML;
+  document.getElementById('gift-cost').innerHTML = selected[2].innerHTML;
+  document.getElementById('gift-description').innerHTML = selected[3].innerHTML;
 }
