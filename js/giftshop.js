@@ -53,6 +53,7 @@ function confirmGiftInfo(button) {
   document.getElementById('gift-description').innerHTML = selected[3].innerHTML;
 }
 
+
 function getGiftCode() {
   var url =  'http://127.0.0.1:5000/api/shoppingresult/' + selectedId;
   var request = new XMLHttpRequest();
@@ -62,7 +63,6 @@ function getGiftCode() {
     if (data.status == "OK") {
       var giftInfo = data.record;
       document.getElementById('gift-code').innerHTML = giftInfo.code;
-      alert(giftInfo.code);
     }
     if (data.status == "not enough credit") {
       document.getElementById('gift-redeem-result').innerHTML = 'اعتبار شما برای دریافت این گیفت کافی نیست';
@@ -72,5 +72,4 @@ function getGiftCode() {
     }
   }
   request.send();
-
 }
