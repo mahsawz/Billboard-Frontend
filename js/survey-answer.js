@@ -99,6 +99,7 @@ function sendAnswers() {
       var result = document.createElement('h3');
       if (resp.status == "OK") {
         result.innerHTML = "نظرسنجی با موفقیت ثبت گردید."
+        getUpdatedData();
       }
       if (resp.status == "user has already filled this survey") {
         result.innerHTML = "قبلا به این نظرسنجی پاسخ داده اید. لطفا نظرسنجی دیگری انتخاب فرمایید."
