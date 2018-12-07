@@ -12,9 +12,12 @@
     <link rel="stylesheet" type="text/css" href="giftshop.css"/>
 </head>
 
+<script src="js/fill-userInfo.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/giftshop.js"></script>
 
 
-<body>
+<body onload="getGifts(),fillUserInfo()">
 <!-- Profile Panel  -->
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-right text-center" style="display:none; right:0;"
      id="rightPanel">
@@ -22,9 +25,9 @@
     <h3>پروفایل کاربری</h3>
     <div>
         <img class="w3-round" src="img/avatar.png" style="width:40%;"/>
-        <h4>آرش مشیرنیا</h4>
-        <h4>اعتبار : 1000</h4>
-        <a style="color:blue;" href="#">تاریخچه گیفت های دریافت شده</a>
+        <h4 id="user-name">آرش مشیرنیا</h4>
+        <h4 id="user-credit">اعتبار : 1000</h4>
+        <a style="color:blue;" href="giftHistory.html">تاریخچه گیفت های دریافت شده</a>
     </div>
 </div>
 <!-- Main Material -->
@@ -39,86 +42,25 @@
             </button>
             <a href="app.html" class="w3-bar-item w3-hover-white w3-button w3-right"
                style="font-size: 2rem;color: white;">اپ ها</a>
-               <a href="#" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
+               <a href="surveys-list.html" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
             <a href="giftshop.html" class="w3-hide-small w3-bar-item w3-hover-white w3-button w3-right"
                style="font-size: 2rem;color: white">گیفت
                 شاپ</a>
         </div>
         <!-- Title -->
         <div class="w3-container text-center title">
-            <h1>گیفت شاپ</h1>
-            <br>
-            <h3><strong>بر روی گیفت مورد نظر خود کلیک کرده و پس از تایید ، آن را دریافت کنید</strong></h3>
+            <h1><strong>گیفت شاپ</strong></h1>
+            <h3>بر روی گیفت مورد نظر خود کلیک کرده و پس از تایید ، آن را دریافت کنید</h3>
             <br>
         </div>
         <!--  Gift cards -->
         <div class="container">
-            <div class="row">
+            <div class="row" id="gifts">
                 <div class="col-sm-3">
                     <div class="thumbnail text-center w3-card">
                         <img src="img/xbox.jpeg" alt="gift icon"/>
-                        <h3>Xbox gift</h3>
-                        <h3>اعتبار</h3>
-                        <h4>توضیحات گیفت</h4>
-                        <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
-                                style="background-color: #122b40;color: white">دریافت
-                            گیفت
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail text-center w3-card">
-                        <img src="img/iTunes.jpeg" alt="gift icon"/>
-                        <h3>iTunes gift</h3>
-                        <h3>اعتبار</h3>
-                        <h4>توضیحات گیفت</h4>
-                        <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
-                                style="background-color: #122b40;color: white">دریافت
-                            گیفت
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail text-center w3-card">
-                        <img src="img/appstore.jpeg" alt="gift icon"/>
-                        <h3>iTunes gift</h3>
-                        <h3>اعتبار</h3>
-                        <h4>توضیحات گیفت</h4>
-                        <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
-                                style="background-color: #122b40;color: white">دریافت
-                            گیفت
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail text-center w3-card">
-                        <img src="img/iTunes1.jpeg" alt="gift icon"/>
-                        <h3>iTunes gift</h3>
-                        <h3>اعتبار</h3>
-                        <h4>توضیحات گیفت</h4>
-                        <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
-                                style="background-color: #122b40;color: white">دریافت
-                            گیفت
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail text-center w3-card">
-                        <img src="img/ps4.jpeg" alt="gift icon"/>
-                        <h3>Ps4 gift</h3>
-                        <h3>اعتبار</h3>
-                        <h4>توضیحات گیفت</h4>
-                        <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
-                                style="background-color: #122b40;color: white">دریافت
-                            گیفت
-                        </button>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail text-center w3-card">
-                        <img src="img/playstore.jpeg" alt="gift icon"/>
-                        <h3>Google play</h3>
-                        <h3>اعتبار</h3>
+                        <h4>Xbox gift</h4>
+                        <h4>اعتبار</h4>
                         <h4>توضیحات گیفت</h4>
                         <button class="btn w3-hover-white" data-toggle="modal" data-target="#proceedbox"
                                 style="background-color: #122b40;color: white">دریافت
@@ -133,11 +75,14 @@
                 <div class="modal-content text-center">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2>آیا از دریافت این گیفت مطمئن هستید؟</h2>
+                        <h2>آیا از دریافت این گیفت مطمئن هستید؟</h2><br>
+                        <h4 id="gift-name"></h4>
+                        <h4 id="gift-cost"></h4>
+                        <h4 id="gift-description"></h4>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer text-center">
                         <button class="btn w3-black w3-hover-white" data-toggle="modal" data-target="#redeemSuccessful"
-                                data-dismiss="modal">دریافت گیفت<span class="glyphicon glyphicon-ok iconOk"></span>
+                                data-dismiss="modal" onclick="getGiftCode()">دریافت گیفت<span class="glyphicon glyphicon-ok iconOk"></span>
                         </button>
                         <button class="btn w3-black w3-hover-white" data-dismiss="modal">انتخاب گیفت دیگر<span
                                 class="glyphicon glyphicon-remove iconX"></span></button>
@@ -150,11 +95,12 @@
                 <div class="modal-content text-center">
                     <div class="modal-body">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 style="color: #122b40">گیفت با موفقیت برای شما ثبت گردید</h2>
+                        <h2 id="gift-redeem-result" style="color: #122b40">گیفت با موفقیت برای شما ثبت گردید</h2>
                         <span class="label label-default" style="background-color: #122b40">کد گیفت کارت</span>
+                        <h3 id="gift-code"></h3>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn w3-hover-white" style="background-color: #122b40;color: white">بازگشت به
+                        <button onclick="window.location.href='app.html'" class="btn w3-hover-white" style="background-color: #122b40;color: white">بازگشت به
                             تبلیغات
                         </button>
                         <button class="btn w3-hover-white" style="background-color: #122b40;color: white"
@@ -208,19 +154,6 @@
     </div>
 </div>
 
-<script src="js/sidebar.js"></script>
-
-<script>
-    function hide() {
-        document.getElementById("rightPanel").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-    }
-
-    function show() {
-        document.getElementById("rightPanel").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
-</script>
 
 </body>
 </html>
