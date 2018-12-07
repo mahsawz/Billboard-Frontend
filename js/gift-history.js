@@ -24,8 +24,8 @@ function getGiftHistory() {
             desc.innerHTML = record.description;
             tableRow.appendChild(desc);
             var date = document.createElement('th');
-            desc.innerHTML = record.date.split('T')[0];
-            tableRow.appendChild(desc);
+            date.innerHTML = record.date.split('T')[0];
+            tableRow.appendChild(date);
             document.getElementById('history-table').appendChild(tableRow);
           }
         }
