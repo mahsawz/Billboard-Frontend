@@ -14,8 +14,10 @@
 </head>
 
 <script src="js/sidebar.js"></script>
+<script src="js/gift-history.js"></script>
+<script src="js/fill-userInfo.js"></script>
 
-<body>
+<body onload="getGiftHistory(),fillUserInfo()">
 <!-- Profile Panel  -->
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-right text-center" style="display:none; right:0;"
      id="rightPanel">
@@ -23,8 +25,8 @@
     <h3>پروفایل کاربری</h3>
     <div>
         <img class="w3-round" src="img/avatar.png" style="width:40%;"/>
-        <h4>آرش مشیرنیا</h4>
-        <h4>اعتبار : 1000</h4>
+        <h4 id="user-name">آرش مشیرنیا</h4>
+        <h4 id="user-credit">اعتبار : 1000</h4>
         <a style="color:blue;" href="giftHistory.html">تاریخچه گیفت های دریافت شده</a>
     </div>
 </div>
