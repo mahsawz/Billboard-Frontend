@@ -1,13 +1,13 @@
 @font-face {
     font-family: forte;
-    src : url('forte.ttf');
+    src : url('font/forte.ttf');
 }
 @font-face {
-  src: url('B_Mitra.ttf');
+  src: url('font/B_Mitra.ttf');
   font-family: Mitra;
 }
 @font-face {
-  src: url('freescpt.ttf');
+  src: url('font/freescpt.ttf');
   font-family: freescript;
 }
 .mySidebar {
