@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/survey.js"></script>
-  <link type="text/css" rel="Stylesheet" href="survey.css"/>
+  <script type="text/javascript" src="js/survey-design.js"></script>
+  <script type="text/javascript" src="js/survey-submit.js"></script>
+  <link type="text/css" rel="stylesheet" href="survey-design.css"/>
 </head>
 <body>
 
@@ -29,7 +30,7 @@
         </ul>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <a class="logo hidden-xs hidden-sm navbar-right" href="#"><img id="logo" src="logo.png"/> </a>
+      <!-- <a class="logo hidden-xs hidden-sm navbar-right" href="#"><img id="logo" src="logo.png"/> </a> -->
       <ul class="nav navbar-nav navbar-right " dir="rtl">
         <li ><a href="#">خانه</a></li>
         <li class="active"><a href="#">ایجاد پرسشنامه</a></li>
@@ -44,15 +45,15 @@
     <div class="col-sm-2 sidenav hidden-sm hidden-xs ">
     </div>
     <div class="questionnaire col-sm-8 ">
-        <form id="questionnaire" dir="rtl">
+        <div id="questionnaire" dir="rtl">
           <label for="question_name" dir="rtl"> نام پرسشنامه خود را وارد کنید </label><br>
           <input type="text"  id="question_name" name="question_name"><br><br>
           <input type="hidden" id="questions_count" name="questions_count"/>
           <div id="questions" class='questions'>
           </div>
           <button id="add_question" class="btn add-more" type="button" onclick="add_more(this)"><span class="glyphicon glyphicon-plus"></span></button><br/>
-          <button type="submit" class="btn btn-default">ثبت نهایی</button>
-        </form>
+          <button onclick="submitSurvey()" class="btn btn-default">ثبت نهایی</button>
+        </div>
     </div>
     <div class="col-sm-2 sidenav ">
     </div>

@@ -16,6 +16,13 @@ body {
     font-size: 15px;
     margin-top: 3rem;
 }
+.btn, .w3-button {
+    transition: .2s;
+    border-radius: 0;
+}
+.btn:hover, .btn:focus {
+    border: 1px solid black;
+}
 
 span1 {
     border: 1px solid;
@@ -72,4 +79,15 @@ span1:hover {
 a:hover, a:after, a:visited, a:link {
     text-decoration: none;
     color: white;
+}
+.modal-footer {
+    text-align: center;
+}
+
+.iconX {
+    color: red;
+}
+
+.iconOk {
+    color: green;
 }

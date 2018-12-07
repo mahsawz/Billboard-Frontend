@@ -1,10 +1,12 @@
+function showQuestions() {
 var survey_id = sessionStorage.getItem("survey_id");
 var request = new XMLHttpRequest();
-var url = 'http://127.0.0.1:5000/api/fillSurvey/' + 1;
+var url = 'http://127.0.0.1:5000/api/fillSurvey/' + survey_id;
 request.open('GET', url, true);
 var qDiv = document.getElementById('questions');
 request.onload = function(e) {
-  var data = JSON.parse(this.response);
+  var resp = JSON.parse(this.response);
+  var data = resp.survey;
   console.log(data);
   document.getElementById('question-title').innerHTML = "" + data.title;
   document.getElementById('question-description').innerHTML = "" + data.description;
@@ -64,3 +66,48 @@ request.onload = function(e) {
   }
 }
 request.send();
+}
+
+
+function sendAnswers() {
+  var items = document.getElementsByClassName('w3-radio');
+  var i;
+  var chosenItems = [];
+  for (i = 1; i < items.length; i++) {
+    var item = items[i];
+    if (item.checked == true) {
+      var id = item.id.split('m');
+      id = id[1];
+      chosenItems.push(""+id);
+    }
+  }
+  var json = {
+    'items': chosenItems
+  };
+  console.log(chosenItems);
+  var request = new XMLHttpRequest();
+  var url = 'http://127.0.0.1:5000/api/submitFilling';
+  request.open('POST', url, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.onreadystatechange = function() {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      var resp = JSON.parse(this.response);
+      document.getElementById('questions').innerHTML = "";
+      var div = document.createElement('div');
+      div.setAttribute('class','text-center');
+      div.setAttribute('dir','rtl');
+      var result = document.createElement('h3');
+      if (resp.status == "OK") {
+        result.innerHTML = "نظرسنجی با موفقیت ثبت گردید."
+        getUpdatedData();
+      }
+      if (resp.status == "user has already filled this survey") {
+        result.innerHTML = "قبلا به این نظرسنجی پاسخ داده اید. لطفا نظرسنجی دیگری انتخاب فرمایید."
+      }
+      div.appendChild(result);
+      document.getElementById('questions').appendChild(div);
+      document.getElementById('submit-btn').style.display = "none";
+    }
+  }
+  request.send(JSON.stringify(json));
+}

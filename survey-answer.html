@@ -13,19 +13,21 @@
     <link rel="stylesheet" type="text/css" href="app.css"/>
 </head>
 
+<script src="js/fill-userInfo.js"></script>
 <script src="js/sidebar.js"></script>
 <script src="js/survey-answer.js"></script>
 
-<body style="background: #c8cacb">
+
+<body onload="showQuestions(),fillUserInfo()" style="background: #c8cacb">
 <!-- Profile Panel  -->
 <div class=" w3-sidebar w3-bar-block w3-card w3-animate-right text-center" style="display:none; right:0;" id="rightPanel">
     <button class="w3-bar-item w3-button w3-large" onclick="closePanel()"> &times;</button>
     <h3>پروفایل کاربری</h3>
     <div >
         <img class="w3-round" src="img/avatar.png" style="width:40%;" />
-        <h4>آرش مشیرنیا</h4>
-        <h4>اعتبار : 1000</h4>
-        <a href="#">تاریخچه گیفت های دریافت شده</a>
+        <h4 id="user-name">آرش مشیرنیا</h4>
+        <h4 id="user-credit">اعتبار : 1000</h4>
+        <a href="giftHistory.html">تاریخچه گیفت های دریافت شده</a>
     </div>
 </div>
 
@@ -38,8 +40,8 @@
             <button id="openNav" class="w3-button w3-bar-item w3-hover-white w3-right" onclick="openPanel()"
                     style="font-size: 2rem; color:white;">&#9776;
             </button>
-            <a href="#" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">اپ ها</a>
-            <a href="#" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
+            <a href="app.html" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">اپ ها</a>
+            <a href="surveys-list.html" class="w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">پرسشنامه ها</a>
             <a href="giftshop.html" class="w3-hide-small w3-bar-item w3-hover-white w3-button w3-right" style="font-size: 2rem">گیفت
                 شاپ</a>
         </div>
@@ -52,13 +54,13 @@
         <!--Surveys-->
         <div class="questions" id="questions">
           <!-- Question1 -->
-          <div class="question">
+          <!-- All radio inputs in a group should have the same name attr -->
+          <!-- <div class="question">
             <div class="w3-row">
               <div class="w3-col " dir="rtl">
                 <h3 style="color: #122b40">1. به نظر شما کدامیک مقصر است؟</h3>
               </div>
             </div>
-            <!-- All radio inputs in a group should have the same name attr -->
             <div class="w3-row flex-container2" dir="rtl">
               <div class="w3-col m3">
                 <input class="w3-radio" name="q0" type="radio" checked/><label>مرد 1</label>
@@ -81,11 +83,11 @@
                 <input class="w3-radio" name="q0"type="radio" /><label>مرد 6</label>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
     </div>
     <div class="text-center">
-      <button class="btn survey-submit-btn w3-hover-white" id="submit-btn" style="color: white;background-color: #122b40">ثبت پاسخ ها</button>
+      <button class="btn survey-submit-btn w3-hover-white" id="submit-btn" onclick="sendAnswers()" style="color: white;background-color: #122b40">ثبت پاسخ ها</button>
     </div>
 </div>
 
