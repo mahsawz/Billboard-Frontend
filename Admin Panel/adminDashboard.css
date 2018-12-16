@@ -1,29 +1,29 @@
 @font-face {
   font-family: forte;
-  src : url('font/forte.ttf');
+  src : url('../font/forte.ttf');
 }
 @font-face {
-  src: url('font/B_Mitra.ttf');
+  src: url('../font/B_Mitra.ttf');
   font-family: Mitra;
 }
 @font-face {
-  src: url('font/freescpt.ttf');
+  src: url('../font/freescpt.ttf');
   font-family: freescript;
 }
 @font-face {
-  src: url('font/IRANYekanRegular.ttf');
+  src: url('../font/IRANYekanRegular.ttf');
   font-family: IRANYekanRegular;
 }
 @font-face {
-  src: url('font/IRANYekanBold.ttf');
+  src: url('../font/IRANYekanBold.ttf');
   font-family: IRANYekanRegular;
 }
 @font-face {
-  src: url('font/IRANYekanLight.ttf');
+  src: url('../font/IRANYekanLight.ttf');
   font-family: IRANYekanRegular;
 }
 @font-face {
-  src: url('font/IRANYekanRegular(FaNum).ttf');
+  src: url('../font/IRANYekanRegular(FaNum).ttf');
   font-family: IRANYekanRegular;
 }
 body {
