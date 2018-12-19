@@ -5,7 +5,9 @@ function enableSubmitButton() {
 function showQuestions() {
   var survey_id = sessionStorage.getItem("survey_id");
   var request = new XMLHttpRequest();
-  var url = 'http://127.0.0.1:5000/api/fillSurvey/' + survey_id;
+  var url = 'http://192.168.1.4:5000/api/fillSurvey/' + survey_id;
+  request.crossDomain = true;
+  request.withCredentials = true;
   request.open('GET', url, true);
   var qDiv = document.getElementById('questions');
   request.onload = function(e) {
@@ -15,7 +17,7 @@ function showQuestions() {
     document.getElementById('question-title').innerHTML = "" + data.title;
     document.getElementById('question-description').innerHTML = "" + data.description;
     var questions = data.questions;
-    window.setTimeout(function(){enableSubmitButton()},questions.length*10000); //wait 10000 miliseconds for each question and then enable submit button
+    window.setTimeout(function(){enableSubmitButton()},questions.length*10000); //wait 10 seconds for each question and then enable submit button
     var i;
     for (i = 0; i < questions.length; i++) {
       var q_object = questions[i];
@@ -91,7 +93,9 @@ function sendAnswers() {
   };
   console.log(chosenItems);
   var request = new XMLHttpRequest();
-  var url = 'http://127.0.0.1:5000/api/submitFilling';
+  var url = 'http://192.168.1.4:5000/api/submitFilling';
+  request.crossDomain = true;
+  request.withCredentials = true;
   request.open('POST', url, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.onreadystatechange = function() {
