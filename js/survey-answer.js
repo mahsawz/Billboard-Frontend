@@ -1,3 +1,7 @@
+function enableSubmitButton() {
+  document.getElementById('submit-btn').disabled = false;
+}
+
 function showQuestions() {
   var survey_id = sessionStorage.getItem("survey_id");
   var request = new XMLHttpRequest();
@@ -11,6 +15,7 @@ function showQuestions() {
     document.getElementById('question-title').innerHTML = "" + data.title;
     document.getElementById('question-description').innerHTML = "" + data.description;
     var questions = data.questions;
+    window.setTimeout(function(){enableSubmitButton()},questions.length*10000); //wait 10000 miliseconds for each question and then enable submit button
     var i;
     for (i = 0; i < questions.length; i++) {
       var q_object = questions[i];
