@@ -8,7 +8,9 @@ function fillUserInfo(user) {
 function getUpdatedData() {
   var user = JSON.parse(sessionStorage.getItem('user'));
   var request = new XMLHttpRequest();
-  var url = 'http://127.0.0.1:5000/api/getUser/'+user.id;
+  var url = 'http://192.168.1.4:5000/api/getUser/'+user.id;
+  request.crossDomain = true;
+  request.withCredentials = true;
   request.open('GET', url, true);
   request.onload = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {

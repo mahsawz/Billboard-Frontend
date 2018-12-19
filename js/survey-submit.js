@@ -69,7 +69,9 @@ function submitSurvey() {
 
 function sendRequest(data) {
   var request = new XMLHttpRequest();
-  var url = 'http://127.0.0.1:5000/api/getSurvey';
+  var url = 'http://192.168.1.4:5000/api/getSurvey';
+  request.crossDomain = true;
+  request.withCredentials = true;
   request.open('POST', url, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.onload = function() {

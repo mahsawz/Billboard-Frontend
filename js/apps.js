@@ -2,12 +2,13 @@ function getApps(filter) {
   var request = new XMLHttpRequest();
   var url;
   if (filter == 0) {
-      url = 'http://127.0.0.1:5000/api/showApps';
+      url = 'http://192.168.1.4:5000/api/showApps/';
   }
   else {
-    url = 'http://127.0.0.1:5000/api/showApps/'+filter;
+    url = 'http://192.168.1.4:5000/api/showApps/'+filter;
   }
-
+  request.crossDomain = true;
+  request.withCredentials = true;
   request.open('GET', url, true);
   request.onload = function(e) {
     var data = JSON.parse(this.response);
