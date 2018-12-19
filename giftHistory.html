@@ -16,6 +16,8 @@
 <script src="js/sidebar.js"></script>
 <script src="js/gift-history.js"></script>
 <script src="js/fill-userInfo.js"></script>
+<script src="js/logout-user.js"></script>
+
 
 <body onload="getGiftHistory(),fillUserInfo()">
 <!-- Profile Panel  -->
@@ -35,7 +37,7 @@
     <div>
         <!-- NavBar -->
         <div class="w3-bar" style="background: #122b40">
-            <a href="index.html" class="w3-bar-item w3-hover-white w3-button" style="font-size: 2rem">خروج</a>
+            <a href="#" onclick="logoutUser()" class="w3-bar-item w3-hover-white w3-button" style="font-size: 2rem">خروج</a>
             <button id="openNav" class="w3-button w3-bar-item w3-hover-white w3-right" onclick="openPanel()"
                     style="font-size: 2rem; color:white;">&#9776;
             </button>
