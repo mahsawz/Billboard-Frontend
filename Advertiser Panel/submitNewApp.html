@@ -10,9 +10,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="advertiserPanel.css" />
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+  <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+
+  <script src="js/submit-app.js"></script>
   <script>
     $(document).ready(function() {
       var trigger = $('.hamburger'),
@@ -126,36 +129,51 @@
           <div class=" w3-container w3-margin" dir="rtl">
             <h3 style="color:#122b40" class="w3-center">ثبت اپلیکیشن جدید</h3>
             <div class="w3-row w3-section">
-              <input required class="w3-input w3-border" name="name" type="text" placeholder=" نام اپ">
+              <input required class="w3-input w3-border" name="name" type="text" id="app-name" placeholder=" نام اپ">
             </div>
             <div class="w3-row w3-section">
-              <input required class="w3-input w3-border" name="icon" type="url" placeholder="لینک آیکون اپ">
+              <input required class="w3-input w3-border" type="url" id="app-icon" placeholder="لینک آیکون اپ">
+            </div>
+            <div class="w3-row w3-section">
+              <input required class="w3-input w3-border" type="url" id="app-link" placeholder="لینک دانلود اپ">
+            </div>
+            <div class="w3-row w3-section">
+              <input required class="w3-input w3-border" type="number" min="10" max="90" id="app-duration" placeholder="مدت زمان تبلیغ (بین 10 تا 90 روز)">
             </div>
             <div class="w3-row w3-section">
               <select name="credit" style="color:#122b40" class="w3-select w3-border">
-                <option value=""  disabled selected>
+                <option class="duration-op" value="null"  disabled selected>
                   میزان اعتبار دانلود اپ خود را تعیین کنید
                 </option>
-                <option value="50">
+                <option class="duration-op" value="50">
                   50
                 </option>
-                <option value="100">
+                <option class="duration-op" value="100">
                   100
                 </option>
-                <option value="150">
+                <option class="duration-op" value="150">
                   150
                 </option>
-                <option value="50">
+                <option class="duration-op" value="200">
                   200
                 </option>
               </select>
-              <!-- <input required class="w3-input w3-border" name="phone" type="number" placeholder="میزان اعتبار دانلود اپ "> -->
             </div>
             <div class="w3-row w3-section">
-              <input required class="w3-input w3-border" name="appName" type="url" placeholder="لینک دانلود اپ">
+              <select name="category" style="color:#122b40" class="w3-select w3-border">
+                <option class="category-op" value="null"  disabled selected>
+                  کتگوری اپ خود را مشخص کنید
+                </option>
+                <option class="category-op" value="بازی">
+                  بازی
+                </option>
+                <option class="category-op" value="اپلیکیشن">
+                  کاربردی
+                </option>
+              </select>
             </div>
             <p class="w3-center">
-              <button class="w3-button w3-section w3-ripple w3-hover-white submit-btn"> ثبت درخواست </button>
+              <button onclick="submitApp()" class="w3-button w3-section w3-ripple w3-hover-white submit-btn"> ثبت درخواست </button>
             </p>
           </div>
         </div>
