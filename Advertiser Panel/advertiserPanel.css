@@ -1,12 +1,4 @@
 @font-face {
-  font-family: forte;
-  src : url('../font/forte.ttf');
-}
-@font-face {
-  src: url('../font/B_Mitra.ttf');
-  font-family: Mitra;
-}
-@font-face {
   src: url('../font/freescpt.ttf');
   font-family: freescript;
 }
@@ -14,7 +6,7 @@
   src: url('../font/IRANYekanRegular.ttf');
   font-family: IRANYekanRegular;
 }
-@font-face {
+/* @font-face {
   src: url('../font/IRANYekanBold.ttf');
   font-family: IRANYekanRegular;
 }
@@ -25,7 +17,7 @@
 @font-face {
   src: url('../font/IRANYekanRegular(FaNum).ttf');
   font-family: IRANYekanRegular;
-}
+} */
 body {
     position: relative;
     overflow-x: hidden;
@@ -465,4 +457,23 @@ html {
   .app-name,.ad-info, .acc-btns {
     padding-top: 1.5%;
   }
+}
+/* ------------------- */
+/*     form classes   */
+/* ------------------*/
+.submit-btn {
+  transition : .2s;
+  background-color:#122b40;
+  color:white;
+}
+.submit-btn:hover {
+  color: #122b40 !important;
+  border:1px solid #122b40;
+}
+.ad-form {
+  background-color:#c8cacb;
+}
+.ad-form input {
+  color:#122b40;
+  opacity: 1;
 }
