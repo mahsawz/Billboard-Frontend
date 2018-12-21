@@ -14,8 +14,10 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
   <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 
-
   <script src="js/submit-app.js"></script>
+  <script src="js/logout-user.js"></script>
+
+
   <script>
     $(document).ready(function() {
       var trigger = $('.hamburger'),
@@ -101,7 +103,7 @@
                 </span></a>
         </li>
         <li class="sidebar-item-align">
-          <a href="#"><span>
+          <a href="#" onclick="logoutUser()"><span>
                     خروج
                     <span style="margin-left: 5px" class="fas fa-sign-out-alt"></span>
                 </span></a>
