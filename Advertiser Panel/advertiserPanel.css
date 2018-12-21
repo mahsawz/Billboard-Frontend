@@ -477,3 +477,22 @@ html {
   color:#122b40;
   opacity: 1;
 }
+/* ---------------------------- */
+/*     survey design classes   */
+/* ---------------------------*/
+
+.question {
+  width:70%;
+  margin-bottom: 14px;
+}
+.choice {
+  width: 40%;
+  margin-bottom: 4px;
+}
+#question_name {
+  width: 250px;
+}
+.description-area {
+   height:100px;
+   width: 70%;
+}
