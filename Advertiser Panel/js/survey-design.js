@@ -1,6 +1,6 @@
 var i = -1;
 
-function add_more(addbtn) {
+function add_question(addbtn) {
   i++;
   var choices = 0;
   var question_label = document.createElement('label');
@@ -8,7 +8,7 @@ function add_more(addbtn) {
   question_label.setAttribute('class', i);
   question_label.setAttribute('id', 'label' + i);
   var labelVal = i + 1;
-  question_label.innerHTML = "Question" + String(labelVal);
+  question_label.innerHTML = "سوال " + String(labelVal);
   var question_div = document.createElement('div');
   question_div.setAttribute("id", i);
   question_div.setAttribute("class", "q", 'col-sm-8');
@@ -26,12 +26,19 @@ function add_more(addbtn) {
   question.setAttribute("name", "q" + i);
   question.setAttribute("class", "question");
   question.setAttribute("id", "question" + i);
+  question.setAttribute("placeholder","سوال")
   var br = document.createElement('br');
   var addChoice = document.createElement('button');
   addChoice.setAttribute("type", "button");
   addChoice.setAttribute("onclick", "add_choice(this)");
   addChoice.setAttribute("id", "addChoice" + i);
   addChoice.setAttribute("class", i);
+  addChoice.setAttribute("style","margin-bottom:3px;border-style:hidden;border-radius:5px;");
+
+  var addChoiceLabel = document.createElement("label");
+  addChoiceLabel.setAttribute('for',"addChoice" + i);
+  addChoiceLabel.innerHTML = "افزودن گزینه";
+  addChoiceLabel.setAttribute('style',"margin:10px");
   var addSpan = document.createElement('span');
   addSpan.setAttribute('class', 'glyphicon glyphicon-plus');
   addChoice.appendChild(addSpan);
@@ -41,6 +48,7 @@ function add_more(addbtn) {
   document.getElementById(i).appendChild(delQuestion);
   document.getElementById(i).appendChild(br);
   document.getElementById(i).appendChild(addChoice);
+  document.getElementById(i).appendChild(addChoiceLabel);
   document.getElementById('questions_count').setAttribute('value', i + 1);
 }
 
@@ -51,6 +59,8 @@ function add_choice(btn) {
   choice.setAttribute("name", "item" + btn.className);
   choice.setAttribute('class', 'choice');
   choice.setAttribute('id', choices + 'choice' + btn.className);
+  choice.setAttribute('placeholder', 'گزینه');
+
   var br = document.createElement('br');
   var delBtn = document.createElement('button');
   //alert(document.getElementById(btn.className).getElementsByClassName("choice").length);

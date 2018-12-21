@@ -60,3 +60,12 @@ a:hover, a:after, a:visited, a:link {
     text-decoration: none;
     color: white;
 }
+
+.btn, .w3-button {
+    transition: .2s;
+    border-radius: 0;
+}
+
+.btn:hover, .btn:focus {
+    border: 1px solid black;
+}
