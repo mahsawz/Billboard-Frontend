@@ -33,17 +33,18 @@ function submitApp() {
         }
       }
     }
-    var app = {
-      "name": appName,
-      "icon": appIcon,
-      "credit": selectedCredit,
-      "dlLink": appLink,
-      "duration": appDuration,
-      "category":selectedCategory
-    }
-    console.log(app);
-    sendRequest(app);
   }
+  var app = {
+    "name": appName,
+    "icon": appIcon,
+    "credit": selectedCredit,
+    "dlLink": appLink,
+    "duration": appDuration,
+    "category":selectedCategory
+  }
+  console.log(app);
+  sendRequest(app);
+
 }
 
 function sendRequest(data) {
