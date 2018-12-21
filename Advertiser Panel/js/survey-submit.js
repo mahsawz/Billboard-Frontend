@@ -18,20 +18,20 @@ function submitSurvey() {
       if (element.className == "question") {
         if (element.value != "") {
           questionTitle = element.value;
-        }
-        else {
+        } else {
           alert("Question can't be empty");
           return
         }
       }
       if (element.className == "choice") {
         if (element.value != "") {
-          if (tempItems.includes(element.value) ) {
+          if (tempItems.includes(element.value)) {
             alert("Choice shouldn't be repeated");
             return
-          }
-          else {
-            items.push({"context" : element.value});
+          } else {
+            items.push({
+              "context": element.value
+            });
             tempItems.push(element.value)
           }
         }
@@ -41,7 +41,7 @@ function submitSurvey() {
       "context": questionTitle,
       "items": items
     }
-    if (items.length <2) {
+    if (items.length < 2) {
       alert("Number of choices shouldn't be less than 2");
       return
     }
@@ -52,15 +52,27 @@ function submitSurvey() {
     alert("Survey name can't be empty");
     return
   }
-  var desc = "Survey Description" //Get desc later when added to page
-  var credit = 100;
-  var duration = "30";
+  var desc = document.getElementById('survey-description').value;
+  var credit;
+  var duration = document.getElementById('survey-duration').value;
+  var options = document.getElementsByTagName('option');
+  var i;
+  for (i = 1; i < options.length; i++) {
+    var option = options[i];
+    if (option.selected == true && option.value == "null") {
+      alert("You should select a credit");
+      return;
+    }
+    if (option.selected == true) {
+      credit = option.value;
+    }
+  }
   var json = {
     'name': surveyName,
     'description': desc,
     'questions': questions,
-    'credit' : credit,
-    'duration':duration
+    'credit': credit,
+    'duration': duration
   };
   console.log(JSON.stringify(json));
   sendRequest(json);
@@ -78,6 +90,8 @@ function sendRequest(data) {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
       var resp = JSON.parse(this.response);
       if (resp.status === "OK") {
+        var main = document.getElementsByClassName('w3-main')[0];
+        main.innerHTML = "<h3 style='color:#122b40' class='w3-center'>درخواست شما با موفقیت ثبت گردید و پس از بررسی نتیجه آن به شما اعلام میگردد</h3>";
         alert("Submit Successful")
       } else {
         alert("Unsuccessful");
