@@ -8,10 +8,12 @@ function fillUserInfo(user) {
 function getUpdatedData() {
   var user = JSON.parse(sessionStorage.getItem('user'));
   var request = new XMLHttpRequest();
-  var url = 'http://192.168.1.4:5000/api/getUser/'+user.id;
+  var userId = user.id;
+  var json = {"user_id" : userId};
+  var url = 'http://192.168.1.4:5000/api/getUser';
   request.crossDomain = true;
   request.withCredentials = true;
-  request.open('GET', url, true);
+  request.open('POST', url, true);
   request.onload = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
       var resp = JSON.parse(this.response);
@@ -25,5 +27,5 @@ function getUpdatedData() {
       }
     }
   }
-  request.send();
+  request.send(JSON.stringify(json));
 }
