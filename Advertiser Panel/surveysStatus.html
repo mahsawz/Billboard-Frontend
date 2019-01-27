@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Advertised Surveys</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="advertiserPanel.css" />
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+  <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+  <script src="js/submit-app.js"></script>
+  <script src="js/logout-user.js"></script>
+  <script src="js/ad-stats.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+      var trigger = $('.hamburger'),
+        overlay = $('.overlay'),
+        isClosed = false;
+
+      trigger.click(function() {
+        hamburger_cross();
+      });
+
+      function hamburger_cross() {
+        if (isClosed == true) {
+          overlay.hide();
+          trigger.removeClass('is-open');
+          trigger.addClass('is-closed');
+          isClosed = false;
+        } else {
+          overlay.show();
+          trigger.removeClass('is-closed');
+          trigger.addClass('is-open');
+          isClosed = true;
+        }
+      }
+      $('[data-toggle="offcanvas"]').click(function() {
+        $('#wrapper').toggleClass('toggled');
+      });
+    });
+  </script>
+</head>
+
+<body onload="getSurveysStats()">
+  <div id="wrapper">
+    <div class="overlay"></div>
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="#">
+                    Billboard
+                    <img class="w3-circle w3-right bar-pic w3-margin-right" src="../img/avatar.png"
+                         style="width:37px;"/>
+                </a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="advertiserPanel.html"><span>
+                    داشبورد
+                    <span style="margin-left: 5px" class="fas fa-home"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="submitNewApp.html"><span>
+                    ثبت اپلیکیشن جدید
+                    <span style="margin-left: 5px" class="fas fa-tasks"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="submitNewSurvey.html"><span>
+                    ثبت نظرسنجی جدید
+                    <span style="margin-left: 5px" class="fas fa-tasks"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="applicationsStatus.html"><span>
+                    اپلیکیشن ها
+                    <span style="margin-left: 5px" class="fas fa-gift"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="surveysStatus.html"><span>
+                  نظرسنجی ها
+                    <span style="margin-left: 5px" class="fas fa-user"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="#"><span>
+                    پرداخت ها
+                    <span style="margin-left: 5px" class="fas fa-envelope"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="../app.html"><span>
+                    بازگشت به تبلیغات
+                    <span style="margin-left: 5px" class="fas fa-envelope"></span>
+                </span></a>
+        </li>
+        <li class="sidebar-item-align">
+          <a href="#" onclick="logoutUser()"><span>
+                    خروج
+                    <span style="margin-left: 5px" class="fas fa-sign-out-alt"></span>
+                </span></a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+    <div class="w3-bar w3-light w3-xlarge">
+      <div class="w3-row">
+        <div class="w3-col s12 l12 w3-light text-right" style="height:50px; padding-right: 45px; padding-top: 12px">
+          <span class="Logo">پنل تبلیغ دهندگان</span>
+        </div>
+      </div>
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+      <div class="container">
+        <!-- Main Material -->
+        <div class="row w3-main ">
+            <h3 style="color:#122b40" class="w3-center">پرسشنامه های ثبت شده</h3> </br>
+            <div class="row w3-padding text-center" id="surveys">
+              <!-- <div class="col-md-6 container w3-card my-card">
+                <img src="../img/iTunes.jpeg" alt="icon" class="w3-margin-top w3-margin-bottom  app-icon">
+                <div class="w3-container w3-center">
+                  <p>
+                    <b>نام اپ</b>
+                  </p>
+                  <p>
+                    <b>اعتبار : 1000</b>
+                  </p>
+                  <div class="w3-hide" id="ad-details">
+                    <p>
+                      <b>تاریخ ثبت : </b>
+                    </p>
+                  </div>
+                  <button onclick="showDetails('ad-details',this)" class="w3-button w3-section w3-ripple w3-hover-white submit-btn">نمایش جزئیات </button>
+                </div>
+              </div>
+            </div> -->
+
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
