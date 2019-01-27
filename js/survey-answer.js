@@ -5,7 +5,7 @@ function enableSubmitButton() {
 function showQuestions() {
   var survey_id = sessionStorage.getItem("survey_id");
   var request = new XMLHttpRequest();
-  var url = 'http://192.168.1.4:5000/api/fillSurvey/' + survey_id;
+  var url = 'http://127.0.0.1:5000/api/fillSurvey/' + survey_id;
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('GET', url, true);
@@ -93,7 +93,7 @@ function sendAnswers() {
   };
   console.log(chosenItems);
   var request = new XMLHttpRequest();
-  var url = 'http://192.168.1.4:5000/api/submitFilling';
+  var url = 'http://127.0.0.1:5000/api/submitFilling';
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('POST', url, true);

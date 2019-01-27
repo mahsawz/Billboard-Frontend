@@ -1,6 +1,6 @@
 function getGifts() {
   var request = new XMLHttpRequest();
-  var url = 'http://192.168.1.4:5000/api/giftshop';
+  var url = 'http://127.0.0.1:5000/api/giftshop';
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('GET', url, true);
@@ -57,7 +57,7 @@ function confirmGiftInfo(button) {
 
 
 function getGiftCode() {
-  var url =  'http://192.168.1.4:5000/api/shoppingresult/' + selectedId;
+  var url =  'http://127.0.0.1:5000/api/shoppingresult/' + selectedId;
   var request = new XMLHttpRequest();
   request.crossDomain = true;
   request.withCredentials = true;

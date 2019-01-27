@@ -10,7 +10,7 @@ function getUpdatedData() {
   var request = new XMLHttpRequest();
   var userId = user.id;
   var json = {"user_id" : userId};
-  var url = 'http://192.168.1.4:5000/api/getUser';
+  var url = 'http://127.0.0.1:5000/api/getUser';
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('POST', url, true);

@@ -2,7 +2,7 @@ function verifyUser() {
   var request = new XMLHttpRequest();
   var email = document.getElementById('username').value;
   var password = document.getElementById('password').value;
-  var url = 'http://192.168.1.4:5000/api/login';
+  var url = 'http://127.0.0.1:5000/api/login';
   var user = {
     'email': email,
     'password': password
@@ -42,7 +42,7 @@ function signupUser() {
     'email': email,
     'password': password
   };
-  var url = 'http://192.168.1.4:5000/api/signup';
+  var url = 'http://127.0.0.1:5000/api/signup';
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('POST', url, true);

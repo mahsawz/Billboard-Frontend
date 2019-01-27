@@ -5,7 +5,7 @@ function getSurveys() {
   surveyImg.setAttribute('alt', "Clip Icon");
 
   var request = new XMLHttpRequest();
-  var url = 'http://192.168.1.4:5000/api/showSurvey';
+  var url = 'http://127.0.0.1:5000/api/showSurvey';
   request.crossDomain = true;
   request.withCredentials = true;
   request.open('GET', url, true);
