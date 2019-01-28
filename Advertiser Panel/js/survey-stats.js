@@ -7,6 +7,45 @@ function makeParagraphElement(data) {
 }
 
 
+function getExtraDetails(id) {
+  var request = new XMLHttpRequest();
+  var url = 'http://127.0.0.1:5000/api/getSurveyStat/' + id;
+  request.crossDomain = true;
+  request.withCredentials = true;
+  request.open('GET', url, true);
+  request.onload = function(e) {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      var data = JSON.parse(this.response);
+      var survey = data.survey_stat;
+      var message;
+      var status = data.status;
+      if (status == "OK") {
+        message = "تایید شده";
+      }
+      if (status == "survey is waiting to be submitted") {
+        message = "در انتظار تایید";
+      }
+      if (status == "survey has been rejected") {
+        message = "رد شده";
+      }
+      var hiddenDiv = document.getElementById(survey.id);
+      hiddenDiv.innerHTML = "";
+      var description = makeParagraphElement("توضیحات : " + survey.description);
+      var survey_stat = makeParagraphElement("وضعیت تبلیغ : " + message);
+      survey_stat.setAttribute('style','color:red');
+      var submit_date = makeParagraphElement("تاریخ ثبت : " + survey.advertise_date.split('T')[0]);
+      var expiration_date = makeParagraphElement("تاریخ انقضا : " + survey.expiration_date.split('T')[0]);
+      hiddenDiv.appendChild(description);
+      hiddenDiv.appendChild(survey_stat);
+      hiddenDiv.appendChild(submit_date);
+      hiddenDiv.appendChild(expiration_date);
+    }
+  }
+  request.send();
+}
+
+
+
 function getSurveysStats() {
   var request = new XMLHttpRequest();
   var url = 'http://127.0.0.1:5000/api/getAdvertisedSurveys';
@@ -32,12 +71,13 @@ function getSurveysStats() {
         var count = makeParagraphElement("اعتبار :  " + survey.credit);
         var hiddenDiv = document.createElement("div");
         hiddenDiv.setAttribute('class','w3-hide');
-        hiddenDiv.setAttribute('id','ad-details');
+        hiddenDiv.setAttribute('id', survey.id);
         detailsCont.appendChild(name);
         detailsCont.appendChild(count);
         detailsCont.appendChild(hiddenDiv);
+        var onclick = "showDetails(" + survey.id + ")";
         var button = document.createElement("button");
-        button.onclick = "showDetails('ad-details',this)";
+        button.setAttribute("onclick", onclick);
         button.setAttribute('class','w3-button w3-section w3-ripple w3-hover-white submit-btn');
         button.innerHTML = "نمایش جزئیات";
         detailsCont.appendChild(button);
@@ -50,9 +90,10 @@ function getSurveysStats() {
 }
 
 
-function showDetails(id, button) {
+function showDetails(id) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
+    getExtraDetails(id);
     x.className += " w3-show";
   } else {
     x.className = x.className.replace(" w3-show", "");
