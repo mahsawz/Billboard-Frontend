@@ -40,7 +40,7 @@ function submitApp() {
     "credit": selectedCredit,
     "dlLink": appLink,
     "duration": appDuration,
-    "category":selectedCategory
+    "category": selectedCategory
   }
   console.log(app);
   sendRequest(app);
@@ -58,9 +58,16 @@ function sendRequest(data) {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
       var resp = JSON.parse(this.response);
       if (resp.status === "OK") {
-        alert("Submit Successful");
         var main = document.getElementsByClassName('w3-main')[0];
-        main.innerHTML = "<h3 style='color:#122b40' class='w3-center'>درخواست شما با موفقیت ثبت گردید و پس از بررسی نتیجه آن به شما اعلام میگردد</h3>";
+        main.innerHTML = "<div class='loader'>Loading...</div>";
+        setTimeout(function() {
+          main.innerHTML = "<h3 style='color:#122b40' class='w3-center'>درخواست شما با موفقیت ثبت گردید و پس از بررسی نتیجه آن به شما اعلام میگردد</h3></br>";
+          var costElement = document.createElement('h3');
+          costElement.setAttribute('class','w3-center');
+          costElement.setAttribute('style','color:red');
+          costElement.innerHTML = "هزینه تبلیغ شما : " + resp.cost;
+          main.appendChild(costElement);
+        }, 1000);
       } else {
         alert("Unsuccessful");
       }
