@@ -441,10 +441,10 @@ html {
     height: 85px;
     line-height: 87px;
 }
-.w3-card {
+/* .w3-card {
   margin-top: 10px;
   margin-bottom: 10px;
-}
+} */
 .req-app-icon {
   width: 80px;
 }
@@ -465,6 +465,7 @@ html {
   transition : .2s;
   background-color:#122b40;
   color:white;
+  border:1px solid #122b40;
 }
 .submit-btn:hover {
   color: #122b40 !important;
@@ -495,4 +496,18 @@ html {
 .description-area {
    height:100px;
    width: 70%;
+}
+/* ----------------- */
+.my-card {
+  border-radius: 25px;
+}
+.app-icon {
+  transition : 0.3s ease-in-out;
+  width:100px;
+  height: 100px;
+  filter: grayscale(0%);
+}
+.app-icon:hover {
+  opacity: 0.6;
+  filter: grayscale(100%);
 }
