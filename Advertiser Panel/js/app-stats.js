@@ -77,7 +77,7 @@ function getAppsStats() {
         detailsCont.appendChild(count);
         detailsCont.appendChild(hiddenDiv);
         var button = document.createElement("button");
-        var onclick = "showDetails(" + app.id + ")";
+        var onclick = "showDetails(" + app.id + ",this" + ")";
         button.setAttribute('class', 'w3-button w3-section w3-ripple w3-hover-white submit-btn');
         button.setAttribute("onclick", onclick);
         button.innerHTML = "نمایش جزئیات";
@@ -91,12 +91,14 @@ function getAppsStats() {
 }
 
 
-function showDetails(id) {
+function showDetails(id,button) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
     getExtraDetails(id);
     x.className += " w3-show";
+    button.innerHTML = "بستن جزئیات";
   } else {
     x.className = x.className.replace(" w3-show", "");
+    button.innerHTML = "نمایش جزئیات";
   }
 }

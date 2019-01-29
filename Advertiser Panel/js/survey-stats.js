@@ -75,7 +75,7 @@ function getSurveysStats() {
         detailsCont.appendChild(name);
         detailsCont.appendChild(count);
         detailsCont.appendChild(hiddenDiv);
-        var onclick = "showDetails(" + survey.id + ")";
+        var onclick = "showDetails(" + survey.id + ",this" + ")";
         var button = document.createElement("button");
         button.setAttribute("onclick", onclick);
         button.setAttribute('class','w3-button w3-section w3-ripple w3-hover-white submit-btn');
@@ -90,12 +90,14 @@ function getSurveysStats() {
 }
 
 
-function showDetails(id) {
+function showDetails(id,button) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
     getExtraDetails(id);
     x.className += " w3-show";
+    button.innerHTML = "بستن جزئیات";
   } else {
     x.className = x.className.replace(" w3-show", "");
+    button.innerHTML = "نمایش جزئیات";
   }
 }
