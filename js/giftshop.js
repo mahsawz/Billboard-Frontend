@@ -49,7 +49,7 @@ function confirmGiftInfo(button) {
   var giftId = eval(button.getAttribute('name'));
   selectedId = giftId;
   var gifts = document.getElementsByClassName('thumbnail');
-  var selected = (gifts[giftId-1]).childNodes; // note : first element isn't static. If static, giftId shouldn't be decremented
+  var selected = button.parentNode.childNodes;
   document.getElementById('gift-name').innerHTML = selected[1].innerHTML;
   document.getElementById('gift-cost').innerHTML = selected[2].innerHTML;
   document.getElementById('gift-description').innerHTML = selected[3].innerHTML;
